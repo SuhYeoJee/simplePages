@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키메라 예제 페이지</title>
+    <style>
+        @font-face {
+            font-family: 'SamChoGoRyeo';
+            src: local('SamChoGoRyeo'), url('SamChoGoRyeo-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        #mainBox {
+            background-color: skyblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            margin: 0;
+        }
+
+        .center-aligned{
+            text-align: center;
+        }
+
+        .right-aligned {
+            text-align: right;
+        }
+
+        textarea {
+            margin-bottom: 10px;
+            resize: none;
+            width: 80%;
+            height: 500px;
+            font-size: 30px;            
+        }
+
+        #outputText {
+            margin-bottom: 10px;
+            border: none;
+            font-family: 'SamChoGoRyeo', sans-serif;
+        }        
+    </style>    
+</head>
+
+<body>
+    <p class = "right-aligned"> 여기에서 개발자를 후원하십시오. [클릭]</p>
+
+    <div id="mainBox">
+        <h1>당신의 키메라를 아래에서 확인하다</h1>
+        <textarea id="outputText" readonly></textarea>
+        <div>
+            <p>즐거우십니까? <br>여기에서 키메라를
+                <a href="SamChoGoRyeo-Regular.ttf" download="SamChoGoRyeo-Regular.ttf">
+                    <button>다운로드</button>
+                </a>
+                하세요.
+            </p>
+        </div>
+    </div>
+
+    <p class = "center-aligned"> <br><br> [ 스폰서 이미지 ]</p>
+    <script>
+        str = `
+일단 지구에 내려선 어린 왕자는 사람이 하나도 보이지 않아 놀랐다. 
+행성을 잘못 찾아온 건 아닌지 벌써 두려운 생각이 들었다. 
+이때 달빛 고리 같은 것이 모래 속에서 움직였다.
+
+“안녕.”
+어린 왕자가 엉겁결에 말했다.
+
+“안녕.”
+뱀이 말했다.
+
+“지금 내가 어느 행성에 떨어진 거니?”
+어린 왕자가 물었다.
+
+“지구 위에. 여긴 아프리카고.”
+뱀이 대답했다.
+
+“그래…그럼 지구에는 사람이 아무도 없니?”
+“여긴 사막이야. 사막에는 아무도 없어. 지구는 커다랗거든.”
+뱀이 말했다.
+
+어린 왕자는 돌 위에 앉아 하늘을 올려다보았다.
+“별들이 환히 빛나는 건 언젠가 저마다 자기 별을 다시 찾아낼 수 있게 하려는 것 같아. 
+내 별을 바라봐. 바로 우리 위에 있어…그런데 참 멀기도 하군!”
+
+“아름다운 별이구나. 여긴 뭐 하러 왔는데?”
+뱀이 말했다.
+
+“어떤 꽃하고 골치 아픈 일이 있어서.”
+어린 왕자가 말했다.
+
+“아!”
+뱀이 대답했다.
+
+그리고 서로 잠자코 있었다.
+
+“사람들은 어디에 있니? 사막은 좀 외로운데…”
+어린 왕자가 마침내 다시 입을 떼었다.
+
+“사람들끼리도 외롭긴 마찬가지란다.”
+뱀이 말했다.
+
+어린 왕자는 뱀을 한참 바라보았다.
+“넌 희한한 짐승이구나. 손가락처럼 가느다랗고…”
+마침내 그가 말했다.
+
+“그래도 난 왕의 손가락보다도 세.”
+뱀이 말했다.
+
+어린 왕자는 한 번 미소 지었다.
+“넌 그렇게 세지 않아…발도 없고…여행도 못 하겠다…”
+
+“배보다 더 멀리 널 데려갈 수 있어.”
+뱀이 말했다.
+
+뱀은 어린 왕자 발목을 금팔찌처럼 휘감고 말했다.
+“누구든지 내가 건드리면 그가 나왔던 땅으로 되돌아가지. 
+하지만 너는 순진하고 다른 별에서 왔으니까…”
+
+어린 왕자는 대답하지 않았다.
+
+“참 딱하구나. 그렇게 약한 몸으로 이 삭막한 지구에 왔으니. 
+너의 별이 너무 그리울 때면 언제고 내가 너를 도와줄 수있을 거야. 난…”
+
+“아! 잘 알겠어. 그런데 넌 줄곧 수수께끼 같은 말만 하는거니?”
+
+“난 수수께끼를 모두 풀어.”
+뱀이 말했다.
+
+그리고 그들은 아무 말이 없었다.
+
+
+        `
+        document.getElementById("outputText").value = str;
+    </script>
+
+</body>
+</html>
