@@ -6,8 +6,8 @@
     <title>키메라 테스트 페이지</title>
     <style>
         @font-face {
-            font-family: 'KCC-Ganpan';
-            src: local('KCC-Ganpan'), url('KCC-Ganpan.woff') format('woff');
+            font-family: 'SamChoGoRyeo';
+            src: local('SamChoGoRyeo'), url('SamChoGoRyeo-Regular.woff') format('woff');
             font-weight: normal;
             font-style: normal;
         }
@@ -41,26 +41,34 @@
         #outputText {
             margin-bottom: 10px;
             border: none;
-            font-family: 'KCC-Ganpan', sans-serif; /* 로컬 폰트 적용 */
+            font-family: 'SamChoGoRyeo', sans-serif;
         }        
     </style>    
 </head>
 
 <body>
     <p class = "right-aligned"> 여기에서 개발자를 후원하십시오. [클릭]</p>
+
     <div id="mainBox">
         <h1>당신의 키메라를 아래에서 확인하다</h1>
         <textarea id="myTextArea"  placeholder="키메라 테스트" oninput="showText(this.value)"></textarea>
         <textarea id="outputText" readonly></textarea>
-        <p></p>
+        <div>
+            <p>즐거우십니까? <br>여기에서 키메라를
+                <a href="SamChoGoRyeo-Regular.ttf" download="SamChoGoRyeo-Regular.ttf">
+                    <button>다운로드</button>
+                </a>
+                하세요.
+            </p>
+        </div>
     </div>
-    <p class = "center-aligned"> <br><br> [ 스폰서 이미지 ]</p>
 
+    <p class = "center-aligned"> <br><br> [ 스폰서 이미지 ]</p>
     <script>
         function showText(inputText) {
             document.getElementById("outputText").value = inputText;
         }
     </script>
+
 </body>
 </html>
-
