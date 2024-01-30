@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch and Display Content of Multiple div.glist_con pcol2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 2px solid black; /* 표 테두리를 검은색으로 설정 */
+            margin: auto; /* 화면 중앙에 표시하기 위해 margin을 auto로 설정 */
+        }
+
+        th, td {
+            border: 1px solid black; /* 각 셀의 테두리를 검은색으로 설정 */
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            fetch('안부글주소')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    console.log('Fetched data:', data);
+                    const parser = new DOMParser();
+                    const htmlDocument = parser.parseFromString(data, 'text/html');
+                    const glistConPcol2Elements = htmlDocument.querySelectorAll('div.glist_con.pcol2');
+                    const dateElements = htmlDocument.querySelectorAll('p.fr.date.pcol2.fil5');
+                    if (glistConPcol2Elements.length === 0 || dateElements.length === 0) {
+                        throw new Error('No div.glist_con.pcol2 elements or date elements found');
+                    }
+                    const table = document.createElement('table');
+                    const tbody = document.createElement('tbody');
+                    glistConPcol2Elements.forEach((element, index) => {
+                        const tr = document.createElement('tr');
+                        const tdIndex = document.createElement('td');
+                        const tdContent = document.createElement('td');
+                        const tdDate = document.createElement('td'); // 새로운 열(td)을 생성합니다.
+                        tdIndex.textContent = index + 1;
+                        tdContent.textContent = element.textContent.trim();
+                        tdDate.textContent = dateElements[index].textContent.trim(); // 날짜 정보를 가져와서 기록합니다.
+                        tr.appendChild(tdIndex);
+                        tr.appendChild(tdContent);
+                        tr.appendChild(tdDate); // 새로운 열을 추가합니다.
+                        tbody.appendChild(tr);
+                    });
+                    table.appendChild(tbody);
+                    document.body.appendChild(table);
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        };
+    </script>
+</head>
+<body>
+    <h1>블로그 안부글</h1>
+</body>
+</html>
